@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import Navbar from "./components/Navbar";
 import FormInput from "./components/FormInput";
-// import About from "./components/About";
+import About from "./components/About";
 import Alert from "./components/Alert";
-// import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   const [mode, setMode] = useState("light");
@@ -33,7 +33,7 @@ function App() {
   };
   return (
     <>
-      {/* <Router> */}
+      <Router>
         <Navbar
           title="TextUtils"
           about="About"
@@ -42,18 +42,18 @@ function App() {
         />
         <Alert alert={alert} />
 
-        {/* <Routes>
+        <Routes>
           <Route
             exact path="/"
-            element={ */}
+            element={
               <FormInput
-                heading="Enter text to analyze"
+                heading="Text Analyzer"
                 mode={mode}
                 showAlert={showAlert}
               />
-            {/* }
+            }
           ></Route>
-          <Route path="/about" element={<About />}></Route>
+          <Route path="/about" element={<About mode={mode}/>}></Route>
           <Route
             path="/home"
             element={
@@ -65,7 +65,7 @@ function App() {
             }
           ></Route>
         </Routes>
-      </Router> */}
+      </Router>
     </>
   );
 }

@@ -1,35 +1,27 @@
 import React, { useState } from "react";
 
-const About = () => {
-  const [myStyle, setMyStyle] = useState({
-    color: "black",
-    backgroundColor: "white",
-  });
-  const [btnText, setBtnText] = useState("Enable Dark Mode");
-
-  const toggleTheme = () => {
-    if (myStyle.color === "black") {
-      setMyStyle({
-        color: "white",
-        backgroundColor: "black",
-        border: "1.5px solid white",
-      });
-      setBtnText("Enable Light Mode");
-    } else {
-      setMyStyle({
-        color: "black",
-        backgroundColor: "white",
-      });
-      setBtnText("Enable Dark Mode");
-    }
+const About = (props) => {
+  let myStyle = {
+    color: props.mode === "dark" ? "white" : "black",
+    backgroundColor: props.mode === "dark" ? "#985555" : "white",
+    border: props.mode === "dark" ? "1.5px solid white" : "",
   };
 
   return (
     <>
-      <div className="container my-3" style={myStyle}>
+      <div
+        className="container my-3"
+        style={{
+          color: props.mode === "dark" ? "white" : "black",
+          backgroundColor: props.mode === "dark" ? "#181e41" : "white",
+        }}
+      >
         <h2>About Us</h2>
         <div className="accordion" id="accordionExample">
-          <div className="accordion-item" style={myStyle}>
+          <div
+            className="accordion-item"
+            style={myStyle}
+          >
             <h2 className="accordion-header">
               <button
                 className="accordion-button"
@@ -40,7 +32,7 @@ const About = () => {
                 aria-controls="collapseOne"
                 style={myStyle}
               >
-                Accordion Item #1
+                Free To Use
               </button>
             </h2>
             <div
@@ -49,19 +41,18 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <strong>This is the first item's accordion body.</strong> It is
-                shown by default, until the collapse plugin adds the appropriate
-                classes that we use to style each element. These classes control
-                the overall appearance, as well as the showing and hiding via
-                CSS transitions. You can modify any of this with custom CSS or
-                overriding our default variables. It's also worth noting that
-                just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                Our text analysis website offers a free and accessible platform
+                for anyone looking to analyze text. Whether you're a student,
+                professional, or simply curious, there are no hidden costs or
+                subscription fees. Enjoy the convenience of unlimited access
+                without constraints.
               </div>
             </div>
           </div>
-          <div className="accordion-item" style={myStyle}>
+          <div
+            className="accordion-item"
+            style={myStyle}
+          >
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
@@ -72,7 +63,7 @@ const About = () => {
                 aria-controls="collapseTwo"
                 style={myStyle}
               >
-                Accordion Item #2
+                Analyze The Text
               </button>
             </h2>
             <div
@@ -81,19 +72,19 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <strong>This is the second item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                Delve into the intricacies of your text effortlessly. With just
+                a few clicks, you can transform your text to uppercase or
+                lowercase, gaining valuable insights along the way. Our
+                intuitive interface makes it easy to explore different analysis
+                options, empowering you to understand and manipulate your text
+                with precision.
               </div>
             </div>
           </div>
-          <div className="accordion-item" style={myStyle}>
+          <div
+            className="accordion-item"
+            style={myStyle}
+          >
             <h2 className="accordion-header">
               <button
                 className="accordion-button collapsed"
@@ -104,7 +95,7 @@ const About = () => {
                 aria-controls="collapseThree"
                 style={myStyle}
               >
-                Accordion Item #3
+                Browser Compatible
               </button>
             </h2>
             <div
@@ -113,21 +104,14 @@ const About = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <strong>This is the third item's accordion body.</strong> It is
-                hidden by default, until the collapse plugin adds the
-                appropriate classes that we use to style each element. These
-                classes control the overall appearance, as well as the showing
-                and hiding via CSS transitions. You can modify any of this with
-                custom CSS or overriding our default variables. It's also worth
-                noting that just about any HTML can go within the{" "}
-                <code>.accordion-body</code>, though the transition does limit
-                overflow.
+                Access our text analysis website seamlessly across various
+                browsers. Whether you prefer Chrome, Firefox, Safari, or any
+                other popular browser, our platform is optimized for
+                compatibility. Enjoy the same user-friendly experience and
+                powerful analysis tools regardless of your browser choice.
               </div>
             </div>
           </div>
-        </div>
-        <div className="btn btn-primary my-2" onClick={toggleTheme}>
-          {btnText}
         </div>
       </div>
     </>
